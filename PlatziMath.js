@@ -1,4 +1,10 @@
-const promedio = array =>  { 
+const Mathematics = {}
+
+
+
+
+
+Mathematics.promedio = array =>  { 
 let suma = 0 
 array.forEach(Element => {
 suma += Element
@@ -10,7 +16,7 @@ console.log(sumaConsola.toFixed(0))
 
 
 
-const promedioReduce = lista => { 
+Mathematics.promedioReduce = lista => { 
 sumaLista = lista.reduce((valorinicial, nuevoValor) => { 
 return valorinicial + nuevoValor
 })
@@ -33,21 +39,21 @@ y aprueba de errores.
 */
 
 
-const promedioReduceOptimizado = lista => { 
+Mathematics.promedioReduceOptimizado = lista => { 
 sumaLista = lista.reduce((valorinicial, nuevoValor)  =>  valorinicial + nuevoValor)
 const promedio = Math.round(sumaLista / lista.length)
 console.log(promedio)
 }
 
-const esPar = (list) => { 
+Mathematics.esPar = (list) => { 
 return (list.length % 2 === 0)  
 } 
 
-const esImpar = (listt) => { 
+Mathematics.esImpar = (listt) => { 
 return !(listt.length % 2 === 0)
 } 
 
-const calcularMediana = (listadesor) => { 
+Mathematics.calcularMediana = (listadesor) => { 
 const lista = ordenarLista(listadesor)
 const listaEsPar = esPar(lista)
 
@@ -64,7 +70,7 @@ return medianaImparLista;
 }
 }
 
-const ordenarLista = (ListaDesordenada) => {
+Mathematics.ordenarLista = (ListaDesordenada) => {
 
     const ordenarListaSort = (valorAcumulado, nuevoValor) => { 
     //if ( valorAcumulado > nuevoValor) { 
@@ -99,7 +105,7 @@ por eso inmediatamente despues es a-b lo mismo que hicimos arriba.
     return lista
 }
 
-const calcularModa = (lista) => { 
+Mathematics.calcularModa = (lista) => { 
     const listaCount = {}
 
     for(let i = 0; i < lista.length; i++) { 
@@ -111,10 +117,16 @@ const calcularModa = (lista) => {
     }else{ 
     listaCount[elemento] = 1
 }
-       
-        
 }
-console.log(listaCount);
+
+const listaArray = Object.entries(listaCount)
+const listaOrdenada = ordenarListaBidimensional(listaArray,1)
+const ListaOrdenadaMaxNumber = listaOrdenada[listaArray.length - 1]
+//console.log(listaCount,listaArray,listaOrdenada,ListaOrdenadaMaxNumber);
+console.log(`la moda es ${ListaOrdenadaMaxNumber[0]}`);
+
+
+
 }
 /*
 En la línea if(listaCount[elemento]) {, el código comprueba si la clave elemento ya existe en el objeto listaCount. Si la clave existe, entonces listaCount[elemento] devuelve su valor actual, que será un número mayor o igual a 1, porque ya se ha contado el elemento al menos una vez. Por lo tanto, la expresión if(listaCount[elemento]) se evalúa como verdadera si el elemento ya ha aparecido antes.
@@ -127,3 +139,10 @@ En resumen, el código utiliza el objeto listaCount para llevar un registro de c
 
 
 */
+Mathematics.ordenarListaBidimensional = (listaDesordenada , i) => {
+const lista = listaDesordenada.sort((a,b) => a[i] - b[i] )
+return lista
+}
+
+
+console.log(Mathematics)
