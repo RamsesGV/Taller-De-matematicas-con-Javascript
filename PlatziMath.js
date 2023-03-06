@@ -54,14 +54,14 @@ return !(listt.length % 2 === 0)
 } 
 
 Mathematics.calcularMediana = (listadesor) => { 
-const lista = ordenarLista(listadesor)
-const listaEsPar = esPar(lista)
+const lista = Mathematics.ordenarLista(listadesor)
+const listaEsPar = Mathematics.esPar(lista)
 
 if (listaEsPar) { 
 const indexMitad1ListaPar = (lista.length / 2) - 1 
 const indexMitad2ListaPar = lista.length / 2
 
-promedio([lista[indexMitad1ListaPar] ,lista[indexMitad2ListaPar]])
+Mathematics.promedio([lista[indexMitad1ListaPar] ,lista[indexMitad2ListaPar]])
 
 }else{
 const indexMitadListaImpar = Math.round(lista.length / 2) 
@@ -99,7 +99,7 @@ por eso inmediatamente despues es a-b lo mismo que hicimos arriba.
 */
 //const lista = ListaDesordenada.sort((a,b) => a-b )
 
-    const lista = ListaDesordenada.sort(ordenarLista )
+    const lista = ListaDesordenada.sort(ordenarListaSort )
     
     
     return lista
